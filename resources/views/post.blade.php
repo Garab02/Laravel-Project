@@ -19,9 +19,3 @@
         <h1>Post here {{$id}}{{$name}}{{$password}}</h1>
     </body>
 </html>
-
-
-{# $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps(); #}
