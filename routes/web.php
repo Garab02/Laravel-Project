@@ -177,13 +177,47 @@ ELOQUENT relationships
 //       return Post::find($id)->user->name;
 // });
 
-// One to Many
+// One to Many 
 
-Route::get('/posts', function(){
+// Route::get('/posts', function(){
 
-   $user = User::find(2);
+//    $user = User::find(2);
 
-   foreach($user->posts as $post){
-      echo $post->title. "</br>";
+//    foreach($user->posts as $post){
+//       echo $post->title. "</br>";
+//    }
+// });
+
+
+//Many to Many
+
+// Route::get('user/{id}/role', function($id){
+//    $user = User::find($id);
+//    //$user = User::find($id)->roles()->orderBy('id','desc')->get();
+//    //return $user->name;
+//    //echo `"This is the data";
+
+
+
+//    foreach($user->roles as $role){
+      
+//     return $role->name;
+
+//    }
+// });
+
+
+// Accessing the intermidiate table / pivot
+
+Route::get('user/pivot', function(){
+   
+   $user = User::find(1);
+
+   
+
+   foreach($user->roles ?: [''] as $role){
+
+      return $role->pivot->created_at;
    }
 });
+
